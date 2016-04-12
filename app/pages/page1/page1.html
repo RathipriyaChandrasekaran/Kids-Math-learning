@@ -1,0 +1,30 @@
+<ion-navbar *navbar>
+  <ion-title>Addition</ion-title>
+</ion-navbar>
+
+<ion-content padding class="page1">
+  <div *ngIf="!inProgress">
+    <h1>Are you ready?</h1>
+    <button full (click)="onStart()">Start</button>
+  </div>
+  <div *ngIf="inProgress">
+    <button danger full (click)="onCancel()">Cancel</button>
+    <br>
+    <br>
+      <div style='float:right'>Seconds : {{remaining}}</div><div style='float:left'>Score : {{score}}</div>
+    <br>
+    <br>
+    <div class='problemHeading'>Problem</div>
+    <br>
+    <div class='problem'>
+    <div>{{questions[qIdx].q}}</div>
+    <br>
+    <div>=</div>
+    <br> 
+    <div>?</div>
+    <button round primary *ngFor="#opt of questions[qIdx].opts">
+      {{opt}}
+    </button>
+    </div>
+  </div>
+</ion-content>
